@@ -1,6 +1,7 @@
 # password-check
 Check your password against Troy Hunt's https://haveibeenpwned.com/  <br>
-7.7 billion passwords have been consolidated and accessible to the public.  
+7.7 billion passwords have been consolidated and accessible to the public. 
+# Why
 You wouldn't want to stick your password as is into the website; this script fufills your privacy by using k-Anonymity algorithm.  
 ## k-Anonymity Algorithm Implementation
 1) Receive your plain text password and turn into SHA-1 hash.  
