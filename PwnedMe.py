@@ -11,16 +11,19 @@ API = 'https://api.pwnedpasswords.com/range/'
 
 def main():
   START = time.time()
-  hashPass = inputPw('HelloWorld')
+  hashPass = inputPw('Password')
   print("FULLHASH: ", hashPass)
   firstFive = hashPass[:5]
   
   resData = pwned(firstFive)
   df = pandas.Series(resData.decode('utf-8').split('\r\n'), name='sha1')
-  #print(df)
+  print(df)
   hashPassTail = hashPass[-20:]
   print(hashPassTail)
-  matchDF = df.isin([hashPassTail])
+  #matchDF = df.isin([hashPassTail])
+
+  matchDF = df[df.str.contains('1aad666d0a04adf83c9d')]
+  print("MATCH DF ****")
   print(matchDF)
   print(matchDF.describe())
 
