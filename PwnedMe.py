@@ -18,11 +18,12 @@ def main():
   resData = pwned(firstFive)
   df = pandas.Series(resData.decode('utf-8').split('\r\n'), name='sha1')
   print(df)
-  hashPassTail = hashPass[-20:]
+  hashPassTail = hashPass[-20:].upper()
   print(hashPassTail)
-  #matchDF = df.isin([hashPassTail])
 
-  matchDF = df[df.str.contains('1aad666d0a04adf83c9d')]
+  matchDF = df[df.str.contains(hashPassTail)]
+  
+  matchDF = matchDF.str.rsplit(pat=':')
   print("MATCH DF ****")
   print(matchDF)
   print(matchDF.describe())
