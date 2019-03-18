@@ -1,9 +1,9 @@
 # password-check
 Check your password against Troy Hunt's https://haveibeenpwned.com/  <br>
 7.7 billion passwords have been consolidated and accessible to the public. 
-# Why
+## Why
 You wouldn't want to stick your password as is into the website; this script fufills your privacy by using k-Anonymity algorithm.  
-## k-Anonymity Algorithm Implementation
+## How: k-Anonymity Algorithm Implementation
 1) Receive your plain text password and turn into SHA-1 hash.  
 _Example:_ `password123` -> `cbfdac6008f9cab4083784cbd1874f76618d2a97`
 2) Submit the first 5 characters of hash or `cbfda` to PwnedPasswords API. 
