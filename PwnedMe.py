@@ -4,14 +4,16 @@
 # file: PwnedMe.py
 # purpose: Check if input password has been compromised via haveibeenpwned.com API 
 
-import requests, hashlib, pandas, logging, time
+import requests, hashlib, pandas, logging, sys
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 API = 'https://api.pwnedpasswords.com/range/'
 
 def main():
-  START = time.time()
-  hashPass = inputPw('Password')
+  if sys.argv[1] == None:
+    print("Please input password.")
+
+  hashPass = inputPw(sys.argv[1])
   firstFive = hashPass[:5]
   
   resData = pwned(firstFive)
@@ -49,8 +51,10 @@ def pwned(hash):
 # pretty: print out string  
 # df: input dataframe 
 def pretty(df):
-  if df == None:
+  if df.empty:
     print("Congrats! Your password has not been leaked!")
+  else:
+    print("Your password has been leaked %s times." % df.iloc[0][1])
 
 
 
