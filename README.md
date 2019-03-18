@@ -7,7 +7,7 @@ You wouldn't want to stick your password as is into the website; this script fuf
 _Example:_ `password123` -> `cbfdac6008f9cab4083784cbd1874f76618d2a97`
 2) Submit the first 5 characters of hash or `cbfda` to PwnedPasswords API. 
 3) API will return 400 to 500 hashes beginning with input or `cbfda` and respective number of instances that password has been breached.  
-_Example: _ 
+_Example:_ 
 API Return is `c6008f9cab4083784cbd1874f76618d2a97:116847`; 116847 number of instances breached.  
 
 
